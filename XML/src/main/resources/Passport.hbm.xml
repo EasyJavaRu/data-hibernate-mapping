@@ -1,0 +1,11 @@
+<hibernate-mapping package="ru.easyjava.data.hibernate.entity">
+    <class name="Passport" table="PASSPORTS">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="series" type="string" column="SERIES"/>
+        <property name="no" type="string" column="NO"/>
+        <property name="issueDate" type="timestamp" column="ISSUE_DATE"/>
+        <one-to-one name="owner" class="ru.easyjava.data.hibernate.entity.Person" cascade="save-update"/>
+    </class>
+</hibernate-mapping>

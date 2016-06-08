@@ -1,0 +1,18 @@
+<hibernate-mapping package="ru.easyjava.data.hibernate.entity">
+    <class name="Person" abstract="true" table="PERSONS">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="firstName" type="string" column="FIRST_NAME"/>
+        <property name="lastName" type="string" column="LAST_NAME"/>
+        <property name="dob" type="timestamp" column="DOB"/>
+        <one-to-one name="passport" class="ru.easyjava.data.hibernate.entity.Passport" cascade="save-update"/>
+        <many-to-one name="primaryAddress" class="ru.easyjava.data.hibernate.entity.Address">
+            <column name="PRIMARY_ADDRESS"/>
+        </many-to-one>
+        <set name="workingPlaces" table="WORKERS" inverse="false" lazy="true" cascade="all">
+            <key column="PERSON_ID"/>
+            <many-to-many column="COMPANY_ID" class="ru.easyjava.data.hibernate.entity.Company"/>
+        </set>
+    </class>
+</hibernate-mapping>

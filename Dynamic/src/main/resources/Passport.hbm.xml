@@ -1,0 +1,25 @@
+<hibernate-mapping>
+
+    <class entity-name="Passport">
+
+        <id name="id"
+            type="long"
+            column="ID">
+            <generator class="native"/>
+        </id>
+
+        <property name="series"
+                  column="SERIES"
+                  type="string"/>
+
+        <property name="no"
+                  column="NO"
+                  type="string"/>
+
+        <property name="issueDate"
+                  column="ISSUE_DATE"
+                  type="timestamp"/>
+
+    </class>
+
+</hibernate-mapping>

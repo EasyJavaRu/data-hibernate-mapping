@@ -1,0 +1,12 @@
+<hibernate-mapping package="ru.easyjava.data.hibernate.entity">
+    <class name="Company" table="COMPANIES">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string" column="NAME"/>
+        <set name="workers" table="WORKERS" inverse="true" lazy="true">
+            <key column="COMPANY_ID"/>
+            <many-to-many column="PERSON_ID" class="ru.easyjava.data.hibernate.entity.Person"/>
+        </set>
+    </class>
+</hibernate-mapping>
